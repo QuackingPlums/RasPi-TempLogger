@@ -3,30 +3,30 @@
 A simple temperature logger for my RasPi, running on Adafruit Occidentalis v0.2
 
 ## Dev environment setup
-Pre-requisites:  
+**Pre-requisites:**  
 libwww-perl `sudo apt-get install libwww-perl`  
 rrdtool `sudo apt-get install rrdtool`
 
-Create a new RRD database:  
+**Create a new RRD database:**  
 `./create_db.sh`  
 NB: running this script creates a NEW RRD every time, wiping the existing one!
 
-[OPTIONAL] Create test data:  
+**[OPTIONAL] Create test data:**  
 `./create_test_data.sh`  
 
-[OPTIONAL] Verify test data:  
+**[OPTIONAL] Verify test data:**  
 `./fetch_1wk.sh`  
 
-[OPTIONAL] Create test graphs:  
+**[OPTIONAL] Create test graphs:**  
 `./create_test_graphs.sh`  
 Creates .PNG files in various different styles.  
 
 ## Hardware setup
-Required:  
+**Required:**  
 1x DS18B20 digital temperature sensor  
 1x 4K7 resistor  
 
-Connecting the DS18B20:  
+**Connecting the DS18B20:**  
 Connect pin 1 (GND) on the 18B20 to pin 6 (GND) on the RPi.  
 Connect pin 2 (DQ) on the 18B20 to pin 7 (GPIO4) on the RPi.  
 Connect pin 3 (VDD) on the 18B20 to pin 1 (3V3) on the RPi.  
@@ -41,9 +41,9 @@ You can then test the sensor by issuing the following command:
 ## Deploy
 Install pre-requisites as per dev environment.  
 
-Setup cron jobs:  
+**Setup cron jobs:**  
 (scripts)
 
-Setup web server:  
+**Setup web server:**  
 (php files)
 
