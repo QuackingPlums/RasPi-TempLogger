@@ -10,7 +10,7 @@ rrdtool `sudo apt-get install rrdtool`
 Create database (once):  
 (run script)
 
-Create test data:
+Create test data:  
 (run script)
 
 ## Hardware setup
