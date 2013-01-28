@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Temperature thresholds
+LOWERTHRESHOLD=
+UPPERTHRESHOLD=
+
+#Colours
+TOOCOOLCOLOUR=
+TOOWARMCOLOUR=
+JUSTRIGHTCOLOUR=
+
