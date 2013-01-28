@@ -7,11 +7,19 @@ Pre-requisites:
 libwww-perl `sudo apt-get install libwww-perl`  
 rrdtool `sudo apt-get install rrdtool`
 
-Create database (once):  
-(run script)
+Create a new RRD database:  
+`./create_db.sh`  
+NB: running this script creates a NEW RRD every time, wiping the existing one!
 
-Create test data:  
-(run script)
+[OPTIONAL] Create test data:  
+`./create_test_data.sh`  
+
+[OPTIONAL] Verify test data:  
+`./fetch_1wk.sh`  
+
+[OPTIONAL] Create test graphs:  
+`./create_test_graphs.sh`  
+Creates .PNG files in various different styles.  
 
 ## Hardware setup
 Required:  
