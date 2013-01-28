@@ -1,2 +1,8 @@
 # Config files
 rdd.conf
+
+# Database
+*.rrd
+
+# Graphs
+*.png
