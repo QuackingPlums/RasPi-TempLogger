@@ -4,6 +4,7 @@ A simple temperature logger for my RasPi, running on Adafruit Occidentalis v0.2
 
 ## Dev environment setup
 **Pre-requisites:**  
+git (1.7.10 or later if you want to use https) 'sudo apt-get install git-core'  
 libwww-perl `sudo apt-get install libwww-perl`  
 rrdtool `sudo apt-get install rrdtool`
 
