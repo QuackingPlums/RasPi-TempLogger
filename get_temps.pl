@@ -6,7 +6,7 @@
 # 
 # Schedule this script to run every 5 minutes.
 ################################################################################
-#use LWP::UserAgent;
+use LWP::UserAgent;
 
 # Nearest METAR station code (usually an airport).
 # Full list of stations available at: http://weather.rap.ucar.edu/surface/stations.txt
@@ -28,9 +28,6 @@ sub getIndoorTemp
 	#checkModules();
 	
 	return getSensorReading();
-	
-	#$rrd = `/usr/bin/rrdtool update $dir/hometemp.rrd N:$temp:$outtemp`;
-	
 }
 
 sub checkModules
@@ -58,7 +55,9 @@ sub getSensorReading()
 		# 2d 00 4B 46 ff ff 08 10 fe : crc=fe YES
 		# 2d 00 4B 46 ff ff 08 10 fe : t=22250 <-- this is the temperature in C * 1000
 		#$sensorReading = `sudo cat /sys/bus/w1/devices/28-*/w1_slave 2>&1`;
-		if ($attempt == 5) { $sensorReading = "YES 2d 00 4B 46 ff ff 08 10 fe : t=22250";}
+		
+		#if ($attempt == 5) { $sensorReading = "YES 2d 00 4B 46 ff ff 08 10 fe : t=22250";}
+
 		if($sensorReading =~ /No such file or directory/)
 		{
 			print "Could not find DS18B20\n";
@@ -81,8 +80,10 @@ sub getSensorReading()
 sub getOutdoorTemp
 {
 	my $metar = getMetar();
-	
+	#print $metar;
+
 	$metar =~ /([\s|M])(\d{2})\//g; #international METAR format: http://en.wikipedia.org/wiki/METAR
+
 	$outdoortemp = ($1 eq 'M') ? $2 * -1 : $2;
 	
 	return $outdoortemp;
@@ -93,11 +94,11 @@ sub getMetar
 	my $metar_url = 'http://weather.noaa.gov/pub/data/observations/metar/stations/' . $metar_station_code . '.TXT';
 
 	# Grab the METAR from NOAA
-#	my $ua = new LWP::UserAgent;
-#	$ua->timeout(120);
-#	my $request = new HTTP::Request('GET', $metar_url);
-#	my $response = $ua->request($request);
-#	return $response->content();
+	my $ua = new LWP::UserAgent;
+	$ua->timeout(120);
+	my $request = new HTTP::Request('GET', $metar_url);
+	my $response = $ua->request($request);
+	return $response->content();
 	
-	return 'EGVN 291150Z 22010KT 9999 -RA FEW008 BKN012 13/11 Q1002 GRN TEMPO 7000 -RADZ GRN';
+#	return 'EGVN 291150Z 22010KT 9999 -RA FEW008 BKN012 13/11 Q1002 GRN TEMPO 7000 -RADZ GRN';
 }
