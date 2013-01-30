@@ -1,14 +1,29 @@
 #!/bin/bash
 
-#Temperature thresholds
+# Temperature thresholds
 LOWERTHRESHOLD=
 UPPERTHRESHOLD=
 
-#Colours
-NOCOLOUR=#
+# Graph colours
+RRD_BACK=#
+RRD_SHADEA=#
+RRD_SHADEB=#
+RRD_FONT=#
+RRD_CANVAS=#
+RRD_GRID=#
+RRD_MGRID=#
+RRD_FRAME=#
+RRD_ARROW=#
+
+# Area colours
+NOCOLOUR=#00000000
 TOOCOOLCOLOUR=#
+TOOWARMCOLOUR=#
 JUSTRIGHTCOLOUR=#
-TOOWARMCOLOUR=#00000000
+
+# Line colours
+INDOORTEMP=#
+OUTDOORTEMP=#
 
 # Paths
 WWWROOT=''

@@ -25,6 +25,15 @@ rrdtool graph test3.png \
 
 rrdtool graph test4.png \
 	--start N-180000 \
+	-c "BACK$RRD_BACK" \
+	-c "SHADEA$RRD_SHADEA" \
+	-c "SHADEB$RRD_SHADEB" \
+	-c "FONT$RRD_FONT" \
+	-c "CANVAS$RRD_CANVAS" \
+	-c "GRID$RRD_GRID" \
+	-c "MGRID$RRD_MGRID" \
+	-c "FRAME$RRD_FRAME" \
+	-c "ARROW$RRD_ARROW" \
 	DEF:temp=RasPi-TempLogger.rrd:temp:AVERAGE \
 	CDEF:nocolour=temp,$LOWERTHRESHOLD,LE,temp,$LOWERTHRESHOLD,IF \
 	CDEF:toocool=temp,$LOWERTHRESHOLD,LE,$LOWERTHRESHOLD,temp,-,UNKN,IF \
