@@ -7,7 +7,8 @@ rrdtool create RasPi-TempLogger.rrd	\
 	RRA:AVERAGE:0.5:12:168	\
 	RRA:AVERAGE:0.5:48:180	\
 	RRA:AVERAGE:0.5:144:360	\
-	RRA:AVERAGE:0.5:288:365
+	RRA:AVERAGE:0.5:288:365	\
+	RRA:MAX:0.5:144:14
 
 # Do I even need these? They're the same resolution as existing archives, right?
 # RRA:AVERAGE:0.5:1:12	\
