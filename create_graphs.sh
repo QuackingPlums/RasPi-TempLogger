@@ -3,6 +3,8 @@
 # testing max, gradient
 rrdtool graph 7dtest.png \
 	--start -7d \
+	--title "7 days" \
+	--vertical-label "degrees C" \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -14,27 +16,26 @@ rrdtool graph 7dtest.png \
 	-c "FRAME$RRD_FRAME" \
 	-c "ARROW$RRD_ARROW" \
 	DEF:temp=RasPi-TempLogger.rrd:temp:AVERAGE \
-	LINE2:temp#C6E6E6:"Indoor temperature [deg C]" \
-	"CDEF:shading10=temp,0.10,*" "AREA:shading10#C6E6E601" \
-	"CDEF:shading15=temp,0.15,*" "AREA:shading15#C6E6E601" \
-	"CDEF:shading20=temp,0.20,*" "AREA:shading20#C6E6E601" \
-	"CDEF:shading25=temp,0.25,*" "AREA:shading25#C6E6E601" \
-	"CDEF:shading30=temp,0.30,*" "AREA:shading30#C6E6E601" \
-	"CDEF:shading35=temp,0.35,*" "AREA:shading35#C6E6E601" \
-	"CDEF:shading40=temp,0.40,*" "AREA:shading40#C6E6E601" \
-	"CDEF:shading45=temp,0.45,*" "AREA:shading45#C6E6E601" \
-	"CDEF:shading50=temp,0.50,*" "AREA:shading50#C6E6E601" \
-	"CDEF:shading55=temp,0.55,*" "AREA:shading55#C6E6E601" \
-	"CDEF:shading60=temp,0.60,*" "AREA:shading60#C6E6E601" \
-	"CDEF:shading65=temp,0.65,*" "AREA:shading65#C6E6E601" \
-	"CDEF:shading70=temp,0.70,*" "AREA:shading70#C6E6E601" \
-	"CDEF:shading75=temp,0.75,*" "AREA:shading75#C6E6E601" \
-	"CDEF:shading80=temp,0.80,*" "AREA:shading80#C6E6E601" \
-	"CDEF:shading85=temp,0.85,*" "AREA:shading85#C6E6E601"
+	"CDEF:shading25=temp,0.025,*" "AREA:shading25#C6E6E600::STACK" \
+	"CDEF:shading30=temp,0.025,*" "AREA:shading30#C6E6E611::STACK" \
+	"CDEF:shading35=temp,0.025,*" "AREA:shading35#C6E6E622::STACK" \
+	"CDEF:shading40=temp,0.025,*" "AREA:shading40#C6E6E633::STACK" \
+	"CDEF:shading45=temp,0.025,*" "AREA:shading45#C6E6E644::STACK" \
+	"CDEF:shading50=temp,0.025,*" "AREA:shading50#C6E6E655::STACK" \
+	"CDEF:shading55=temp,0.025,*" "AREA:shading55#C6E6E666::STACK" \
+	"CDEF:shading60=temp,0.025,*" "AREA:shading60#C6E6E677::STACK" \
+	"CDEF:shading65=temp,0.025,*" "AREA:shading65#C6E6E688::STACK" \
+	"CDEF:shading70=temp,0.025,*" "AREA:shading70#C6E6E699::STACK" \
+	"CDEF:shading75=temp,0.025,*" "AREA:shading75#C6E6E6AA::STACK" \
+	"CDEF:shading80=temp,0.025,*" "AREA:shading80#C6E6E6BB::STACK" \
+	"CDEF:shading85=temp,0.025,*" "AREA:shading85#C6E6E6CC::STACK" \
+	"CDEF:shading90=temp,0.025,*" "AREA:shading90#C6E6E6DD::STACK" \
+	"CDEF:shading95=temp,0.65,*" "AREA:shading95#C6E6E6EE::STACK" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]" \
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature" \
 	DEF:maxtemp=RasPi-TempLogger.rrd:temp:MAX \
-	LINE1:maxtemp#FFCC3C:"12h maximum [deg C]"
+	LINE1:maxtemp#FFCC3C:"12h maximum"
 	
 #"CDEF:shading10=temp,0.90,*" "AREA:shading10#E10000" \
 #"CDEF:shading15=temp,0.85,*" "AREA:shading15#D20000" \
@@ -75,9 +76,9 @@ rrdtool graph 1h.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 8 hours
 rrdtool graph 8h.png \
@@ -101,9 +102,9 @@ rrdtool graph 8h.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 1 day
 rrdtool graph 1d.png \
@@ -127,9 +128,9 @@ rrdtool graph 1d.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 7 days
 rrdtool graph 7d.png \
@@ -153,9 +154,9 @@ rrdtool graph 7d.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 30 days
 rrdtool graph 30d.png \
@@ -179,9 +180,9 @@ rrdtool graph 30d.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 90 days
 rrdtool graph 90d.png \
@@ -205,9 +206,9 @@ rrdtool graph 90d.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 180 days
 rrdtool graph 180d.png \
@@ -231,9 +232,9 @@ rrdtool graph 180d.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
 # 365 days
 rrdtool graph 365d.png \
@@ -257,7 +258,7 @@ rrdtool graph 365d.png \
 	AREA:toocool$TOOCOOLCOLOUR:"Too cool":STACK \
 	AREA:justright$JUSTRIGHTCOLOUR:"Ok":STACK \
 	AREA:toowarm$TOOWARMCOLOUR:"Too warm":STACK \
-	LINE1:temp$INDOORTEMP:"Indoor temperature [deg C]" \
+	LINE1:temp$INDOORTEMPCOLOUR:"Indoor temperature [deg C]" \
 	DEF:outtemp=RasPi-TempLogger.rrd:outtemp:AVERAGE \
-	LINE1:outtemp$OUTDOORTEMP:"Outdoor temperature [deg C]"
+	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature [deg C]"
 
