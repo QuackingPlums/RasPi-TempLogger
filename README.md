@@ -7,6 +7,7 @@ A simple temperature logger for my RasPi, running on Adafruit Occidentalis v0.2
 git (1.7.10 or later if you want to use https) `sudo apt-get install git-core`  
 libwww-perl `sudo apt-get install libwww-perl`  
 rrdtool `sudo apt-get install rrdtool`
+apache2 (may already be installed) `sudo apt-get install apache2`  
 
 **Create a new RRD database:**  
 `./create_db.sh`  
@@ -43,8 +44,10 @@ You can then test the sensor by issuing the following command:
 Install pre-requisites as per dev environment.  
 
 **Setup cron jobs:**  
-(scripts)
+(crontab)  
+Configure paths in the crontab to point to correct locations.  
 
 **Setup web server:**  
-(php files)
+(php files)  
 
+Copy ./sample.confs/rrd.conf.meteo to ./rrd.conf or create a new one using the template.  
