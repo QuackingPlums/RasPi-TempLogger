@@ -43,9 +43,9 @@ You can then test the sensor by issuing the following command:
 ## Deploy
 Install pre-requisites as per dev environment.  
 
-**Setup cron jobs:**  
-(crontab)  
-Configure paths in the crontab to point to correct locations.  
+**Setup cron job:**  
+Configure paths in cron-file.txt to point to correct locations.  
+Install cron job into crontab `crontab -l`  
 
 **Setup web server:**  
 (php files)  
