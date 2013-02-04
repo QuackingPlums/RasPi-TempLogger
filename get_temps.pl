@@ -7,10 +7,15 @@
 # Schedule this script to run every 5 minutes.
 ################################################################################
 use LWP::UserAgent;
+use File::Copy;
 
 # Nearest METAR station code (usually an airport).
 # Full list of stations available at: http://weather.rap.ucar.edu/surface/stations.txt
 $metar_station_code = 'EGVN'; # EGVN = Brize Norton, UK
+
+$path_to_rrdtool = '/usr/bin/rrdtool';
+$path_to_scripts = '/home/pi/RasPi-TempLogger';
+$path_to_webroot = '/var/www';
 
 
 my $outdoorTemp = getOutdoorTemp();
@@ -19,9 +24,36 @@ print "Outdoor: " . $outdoorTemp . "C\n";
 my $indoorTemp = getIndoorTemp();
 print "Indoor: " . $indoorTemp . "C\n";
 
-#$rrd = `/usr/bin/rrdtool update /RasPi-TempLogger.rrd N:$indoorTemp:$outdoorTemp`;
+logTemps($outdoorTemp, $indoorTemp);
+
+createGraphs();
+
+moveGraphsToWebroot();
+
 
 ################################################################################
+
+sub moveGraphsToWebroot
+{
+	my $src = $path_to_scripts . '/*.png';
+	my $dest = $path_to_webroot . '/';
+
+	for my $file (glob $src)
+	{
+		move ($file, $dest) or die $!;
+	}
+}
+
+sub createGraphs
+{
+	my retVal = `$path_to_scripts/create_graphs.sh`;
+}
+
+sub logTemps
+{
+	($outdoorTemp, $indoorTemp) = @_;
+	#$rrd = `$path_to_rrdtool update $path_to_scripts/RasPi-TempLogger.rrd N:$indoorTemp:$outdoorTemp`;
+}
 
 sub getIndoorTemp
 {
@@ -33,7 +65,7 @@ sub getIndoorTemp
 sub checkModules
 {
 	# Check for GPIO and w1_therm LKMs and load if necessary
-	$modules = `cat /proc/modules`;
+	my $modules = `cat /proc/modules`;
 	if ($modules !~ /w1_therm/)
 	{
 		$therm = `sudo modprobe w1-therm`;
@@ -44,10 +76,10 @@ sub checkModules
 	}
 }
 
-sub getSensorReading()
+sub getSensorReading
 {
 	# Try up to 5 times to get a valid reading
-	$sensorReading = '';
+	my $sensorReading = '';
 	my $attempt = 1;
 	while ($sensorReading !~ /YES/g && $attempt <= 5)
 	{
