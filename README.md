@@ -26,9 +26,9 @@ Perl web library `sudo apt-get install **libwww-perl**`
 Round-robin database toold `sudo apt-get install **rrdtool**`  
 Lightweight web server `sudo apt-get install lighttpd`  
 PHP  
-	sudo apt-get install **php5-common php5-cgi php5**  
-	sudo lighty-enable-mod fastcgi fastcgi-php  
-	sudo service lighttpd force-reload  
+    sudo apt-get install **php5-common php5-cgi php5**
+    sudo lighty-enable-mod fastcgi fastcgi-php
+    sudo service lighttpd force-reload
 
 Copy ./sample.confs/rrd.conf.meteo to ./rrd.conf or create a new one using the template.  
 
