@@ -1,3 +1,4 @@
+#!/bin/bash
 . rrd.conf
 
 rm *.png

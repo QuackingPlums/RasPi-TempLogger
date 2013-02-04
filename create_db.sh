@@ -1,3 +1,4 @@
+#!/bin/bash
 rrdtool create RasPi-TempLogger.rrd	\
 	--start N-31536000	\
 	--step 300	\

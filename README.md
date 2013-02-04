@@ -23,6 +23,14 @@ NB: running this script creates a NEW RRD every time, wiping the existing one!
 `./create_test_graphs.sh`  
 Creates .PNG files in various different styles.  
 
+** Set permissions on webroot: **
+Change webroot owner and group  
+`sudo chown www-data:www-data /var/www`  
+Allow the group to write to the directory  
+`sudo chmod 775 /var/www`  
+Add the pi user to the www-data group  
+`sudo usermod -a -G www-data pi`  
+
 ## Hardware setup
 **Required:**  
 1x DS18B20 digital temperature sensor  
