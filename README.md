@@ -25,11 +25,11 @@ Source control tool (1.7.10 or later if you want to use https) `sudo apt-get ins
 Perl web library `sudo apt-get install libwww-perl`  
 Round-robin database toold `sudo apt-get install rrdtool`  
 Lightweight web server `sudo apt-get install lighttpd`  
-PHP  
+PHP
 ````
-sudo apt-get install php5-common php5-cgi php5
-sudo lighty-enable-mod fastcgi fastcgi-php
-sudo service lighttpd force-reload  
+	sudo apt-get install php5-common php5-cgi php5
+	sudo lighty-enable-mod fastcgi fastcgi-php
+	sudo service lighttpd force-reload  
 ````
 
 Copy ./sample.confs/rrd.conf.meteo to ./rrd.conf or create a new one using the template.  
@@ -48,7 +48,7 @@ NB: running this script creates a NEW RRD every time, wiping the existing one!
 `./create_test_graphs.sh`  
 Creates .PNG files in various different styles.  
 
-** Set permissions on webroot: **
+** Set permissions on webroot: **  
 Change webroot owner and group    
 `sudo chown www-data:www-data /var/www`  
 Allow the group to write to the directory  
@@ -58,7 +58,9 @@ Add the pi user to the www-data group
 
 **Setup cron job:**  
 Copy sample cron-file.txt and configure paths to point at the correct locations.  
-Install cron job and verify crontab   
-        `crontab cron-file.txt`  
-        `crontab -l`  
+Install cron job and verify crontab 
+```
+	crontab cron-file.txt  
+	crontab -l
+```  
 
