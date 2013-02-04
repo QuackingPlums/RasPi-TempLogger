@@ -8,6 +8,8 @@
 ################################################################################
 use LWP::UserAgent;
 use File::Copy;
+use Time::Piece ();
+
 
 # Nearest METAR station code (usually an airport).
 # Full list of stations available at: http://weather.rap.ucar.edu/surface/stations.txt
@@ -18,11 +20,10 @@ $path_to_scripts = '/home/rpi/RasPi-TempLogger';
 $path_to_webroot = '/var/www';
 
 
-my $outdoorTemp = getOutdoorTemp();
-print "Outdoor: " . $outdoorTemp . "C\n";
+print "get_temps.pl started at: " . Time::Piece::localtime->strftime('%F %T') . "\n";
 
+my $outdoorTemp = getOutdoorTemp();
 my $indoorTemp = getIndoorTemp();
-print "Indoor: " . $indoorTemp . "C\n";
 
 logTemps($outdoorTemp, $indoorTemp);
 
@@ -47,16 +48,16 @@ sub moveGraphsToWebroot
 
 sub createGraphs
 {
-	print "Creating graphs:\n";
-	my $retVal = `$path_to_scripts/create_graphs.sh`;
-	print $retVal . "\n";
+	chdir $path_to_scripts;
+	system ("./create_graphs.sh");
+	print "Graphs created.\n";
 }
 
 sub logTemps
 {
 	($outdoorTemp, $indoorTemp) = @_;
 	$rrd = `$path_to_rrdtool update $path_to_scripts/RasPi-TempLogger.rrd N:$indoorTemp:$outdoorTemp`;
-	print "Logging RRD: " . $rrd . "\n";
+	print "Temps logged in RRD.\n";
 }
 
 sub getIndoorTemp
@@ -101,22 +102,22 @@ sub getSensorReading
 		}
 		elsif($sensorReading =~ /YES/g)
 		{
-			print "Attempt " . $attempt . " succeeded\n";
+			print "Sensor reading: attempt " . $attempt . " succeeded.\n";
 			$sensorReading =~ /t=(\d+)/i; # Find the digits following "t="
 			return $1 / 1000; # Sensor value is degrees C * 1000
 		}
 		
-		print "Attempt " . $attempt . " failed\n";
+		print "Sensor reading: attempt " . $attempt . " failed.\n";
 		$attempt++;
 	}
 	
-	die "Unable to obtain a valid sensor reading\n";
+	die "Unable to obtain a valid sensor reading.\n";
 }
 
 sub getOutdoorTemp
 {
 	my $metar = getMetar();
-	#print $metar;
+	print "Latest METAR from " . $metar_station_code .":\n" . $metar;
 
 	$metar =~ /([\s|M])(\d{2})\//g; #international METAR format: http://en.wikipedia.org/wiki/METAR
 

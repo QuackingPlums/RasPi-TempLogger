@@ -35,6 +35,7 @@ rrdtool graph 1h.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 8 hours
 rrdtool graph 8h.png \
@@ -68,6 +69,7 @@ rrdtool graph 8h.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 1 day
 rrdtool graph 1d.png \
@@ -101,6 +103,7 @@ rrdtool graph 1d.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 7 days
 rrdtool graph 7d.png \
@@ -131,6 +134,7 @@ rrdtool graph 7d.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 30 days
 rrdtool graph 30d.png \
@@ -162,6 +166,7 @@ rrdtool graph 30d.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 90 days
 rrdtool graph 90d.png \
@@ -193,6 +198,7 @@ rrdtool graph 90d.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 180 days
 rrdtool graph 180d.png \
@@ -224,6 +230,7 @@ rrdtool graph 180d.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
 # 365 days
 rrdtool graph 365d.png \
@@ -255,4 +262,5 @@ rrdtool graph 365d.png \
 	LINE1:outtemp$OUTDOORTEMPCOLOUR:"Outdoor temperature      " \
 	HRULE:$UPPERTHRESHOLD$UPPERTHRESHOLDCOLOUR:"Upper comfort limit [$UPPERTHRESHOLD""C]" \
 	HRULE:$LOWERTHRESHOLD$LOWERTHRESHOLDCOLOUR:"Lower comfort limit [$LOWERTHRESHOLD""C]" \
+	>/dev/null
 
