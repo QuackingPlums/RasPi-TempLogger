@@ -8,10 +8,10 @@ A simple temperature logger for my RasPi, running on Adafruit Occidentalis v0.2
 1x 4K7 resistor  
 
 **Connecting the DS18B20:**  
-Connect pin 1 (GND) on the 18B20 to pin 6 (GND) on the RPi.  
-Connect pin 2 (DQ) on the 18B20 to pin 7 (GPIO4) on the RPi.  
-Connect pin 3 (VDD) on the 18B20 to pin 1 (3V3) on the RPi.  
-Put the 4k7 resistor between pins 2 and 3 on the 18B20.  
+Connect pin 1 (GND) on the 18B20 to pin 6 (GND) on the RPi  
+Connect pin 2 (DQ) on the 18B20 to pin 7 (GPIO4) on the RPi  
+Connect pin 3 (VDD) on the 18B20 to pin 1 (3V3) on the RPi  
+Put the 4k7 resistor between pins 2 and 3 on the 18B20  
 
 **Install LKMs:**  
 1-wire GPIO driver:  
@@ -65,10 +65,15 @@ Run this script to check that the test data has been loaded
 `./fetch_1wk.sh`  
 
 **[OPTIONAL] Create test graphs:**  
-Run this script to create some test graphs (creates .PNG files in various different styles).  
+Run this script to create some test graphs (creates .PNG files in various different styles)  
 `./create_test_graphs.sh`  
 
-
+**Setup website:**  
+Copy website to /var/www
+```
+	cp index.php /var/www  
+	cp m/* var/www/  
+```
 
 **Setup cron job:**  
 Copy sample cron-file.txt and configure paths to point at the correct locations.  
