@@ -19,7 +19,7 @@
 	<div id="title">RasPi-TempLogger</div>
 </div>
 <div id="content">
-	<span class="graytitle">Last updated: <?=$lastupdate?></span>
+	<span class="graytitle">Last updated: <?=str_replace(' ','&nbsp;',$lastupdate)?></span>
 	<ul class="pageitem">
 		<li class="textbox">
 			<span class="header">Resolution: 5 minutes</span>

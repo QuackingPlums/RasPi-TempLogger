@@ -9,7 +9,6 @@ rrdtool graph 1h.png \
 	--title "Last 60 minutes" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -43,7 +42,6 @@ rrdtool graph 8h.png \
 	--title "Last 8 hours" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -77,7 +75,6 @@ rrdtool graph 1d.png \
 	--title "Last 24 hours" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -142,7 +139,6 @@ rrdtool graph 30d.png \
 	--title "Last 30 days" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -174,7 +170,6 @@ rrdtool graph 90d.png \
 	--title "Last 90 days" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -206,7 +201,6 @@ rrdtool graph 180d.png \
 	--title "Last 180 days" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
@@ -238,7 +232,6 @@ rrdtool graph 365d.png \
 	--title "Last 365 days" \
 	--vertical-label "degrees C" \
 	--watermark "©QuackingPlums January 2013" \
-	--lower-limit 0 \
 	-c "BACK$RRD_BACK" \
 	-c "SHADEA$RRD_SHADEA" \
 	-c "SHADEB$RRD_SHADEB" \
