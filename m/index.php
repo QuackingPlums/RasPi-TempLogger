@@ -37,20 +37,20 @@
 	<ul class="pageitem">
 		<li class="textbox">
 			<span class="header">Resolution: 4 hours</span>
-			<img src="../1m.png"/>
+			<img src="../30d.png"/>
 		</li>
 	</ul>
 	<ul class="pageitem">
 		<li class="textbox">
 			<span class="header">Resolution: 12 hours</span>
-			<p><img src="../3m.png"/></p>
-			<p><img src="../6m.png"/></p>
+			<p><img src="../90d.png"/></p>
+			<p><img src="../180d.png"/></p>
 		</li>
 	</ul>
 	<ul class="pageitem">
 		<li class="textbox">
 			<span class="header">Resolution: 24 hours</span>
-			<img src="../1y.png"/>
+			<img src="../365d.png"/>
 		</li>
 	</ul>
 </div>
