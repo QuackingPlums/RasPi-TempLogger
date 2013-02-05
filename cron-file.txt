@@ -1,2 +1,0 @@
-# RasPi-TempLogger jobs
-*/5 * * * * /home/rpi/RasPi-TempLogger/get_temps.pl > /home/rpi/RasPi-TempLogger/log.txt
