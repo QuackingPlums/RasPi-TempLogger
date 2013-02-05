@@ -41,8 +41,8 @@ You can now test the sensor by issuing the following command:
 
 **PHP 5**  
 ```
-	sudo apt-get install php5-common php5-cgi php5
-	sudo lighty-enable-mod fastcgi fastcgi-php
+	sudo apt-get install php5-common php5-cgi php5  
+	sudo lighty-enable-mod fastcgi fastcgi-php  
 	sudo service lighttpd force-reload  
 ```
 
