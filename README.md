@@ -38,10 +38,12 @@ You can now test the sensor by issuing the following command:
 `sudo chmod 775 /var/www`  
 - Add the pi user to the www-data group  
 `sudo usermod -a -G www-data pi`  
+
 **PHP 5**  
 	sudo apt-get install php5-common php5-cgi php5
 	sudo lighty-enable-mod fastcgi fastcgi-php
 	sudo service lighttpd force-reload  
+
 **Configuration**  
 Grab a sample config or create a fresh one using the template  
 `cp ./sample.confs/rrd.conf.meteo ./rrd.conf`  
