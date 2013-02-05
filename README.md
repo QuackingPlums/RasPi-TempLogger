@@ -40,9 +40,11 @@ You can now test the sensor by issuing the following command:
 `sudo usermod -a -G www-data pi`  
 
 **PHP 5**  
+```
 	sudo apt-get install php5-common php5-cgi php5
 	sudo lighty-enable-mod fastcgi fastcgi-php
 	sudo service lighttpd force-reload  
+```
 
 **Configuration**  
 Grab a sample config or create a fresh one using the template  
@@ -71,7 +73,8 @@ Run this script to create some test graphs (creates .PNG files in various differ
 **Setup cron job:**  
 Copy sample cron-file.txt and configure paths to point at the correct locations.  
 `cp sample.confs/cron-file.template .`  
-Install cron job and verify crontab 
+Install cron job and verify crontab  
+```
 	crontab cron-file.txt  
 	crontab -l  
-
+```
