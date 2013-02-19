@@ -77,7 +77,7 @@ Copy website to /var/www
 
 **Setup cron job:**  
 Copy sample cron-file.txt and configure paths to point at the correct locations.  
-`cp sample.confs/cron-file.template .`  
+`cp sample.confs/cron-file.template cron-file.txt`  
 Install cron job and verify crontab  
 ```
 	crontab cron-file.txt  
