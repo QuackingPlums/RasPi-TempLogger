@@ -17,6 +17,7 @@
 
 <div id="topbar">
 	<div id="title">RasPi-TempLogger</div>
+	<div id="rightbutton"><a href="" class="noeffect" onClick="document.location.reload(true)">Refresh</a></div>
 </div>
 <div id="content">
 	<span class="graytitle">Last updated: <?=str_replace(' ','&nbsp;',$lastupdate)?></span>

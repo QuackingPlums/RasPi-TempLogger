@@ -16,7 +16,7 @@ use Time::Piece ();
 $metar_station_code = 'EGVN'; # EGVN = Brize Norton, UK
 
 $path_to_rrdtool = '/usr/bin/rrdtool';
-$path_to_scripts = '/home/rpi/RasPi-TempLogger';
+$path_to_scripts = '/home/pi/dev/RasPi-TempLogger';
 $path_to_webroot = '/var/www';
 
 
@@ -62,7 +62,7 @@ sub logTemps
 
 sub getIndoorTemp
 {
-	#checkModules();
+	checkModules();
 	
 	return getSensorReading();
 }
@@ -91,9 +91,9 @@ sub getSensorReading
 		# Poll the sensor; it will return something like this if successful
 		# 2d 00 4B 46 ff ff 08 10 fe : crc=fe YES
 		# 2d 00 4B 46 ff ff 08 10 fe : t=22250 <-- this is the temperature in C * 1000
-		#$sensorReading = `sudo cat /sys/bus/w1/devices/28-*/w1_slave 2>&1`;
+		$sensorReading = `sudo cat /sys/bus/w1/devices/28-*/w1_slave 2>&1`;
 		
-		if ($attempt == 5) { $sensorReading = "YES 2d 00 4B 46 ff ff 08 10 fe : t=22250";}
+		#if ($attempt == 5) { $sensorReading = "YES 2d 00 4B 46 ff ff 08 10 fe : t=22250";}
 
 		if($sensorReading =~ /No such file or directory/)
 		{

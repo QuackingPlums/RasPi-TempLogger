@@ -1,7 +1,7 @@
 #!/bin/bash
 . rrd.conf
 
-rm *.png
+rm -f *.png
 
 # 1 hour
 rrdtool graph 1h.png \
@@ -20,7 +20,6 @@ rrdtool graph 1h.png \
 	-c "FRAME$RRD_FRAME" \
 	-c "ARROW$RRD_ARROW" \
 	DEF:temp=RasPi-TempLogger.rrd:temp:AVERAGE \
-	CDEF:shading0=temp,0.125,*  AREA:shading0#C6E6E600::STACK \
 	CDEF:shading1=temp,0.125,*  AREA:shading1#C6E6E620::STACK \
 	CDEF:shading2=temp,0.125,*  AREA:shading2#C6E6E640::STACK \
 	CDEF:shading3=temp,0.125,*  AREA:shading3#C6E6E660::STACK \
@@ -53,7 +52,6 @@ rrdtool graph 8h.png \
 	-c "FRAME$RRD_FRAME" \
 	-c "ARROW$RRD_ARROW" \
 	DEF:temp=RasPi-TempLogger.rrd:temp:AVERAGE \
-	CDEF:shading0=temp,0.125,*  AREA:shading0#C6E6E600::STACK \
 	CDEF:shading1=temp,0.125,*  AREA:shading1#C6E6E620::STACK \
 	CDEF:shading2=temp,0.125,*  AREA:shading2#C6E6E640::STACK \
 	CDEF:shading3=temp,0.125,*  AREA:shading3#C6E6E660::STACK \
@@ -86,7 +84,6 @@ rrdtool graph 1d.png \
 	-c "FRAME$RRD_FRAME" \
 	-c "ARROW$RRD_ARROW" \
 	DEF:temp=RasPi-TempLogger.rrd:temp:AVERAGE \
-	CDEF:shading0=temp,0.125,*  AREA:shading0#C6E6E600::STACK \
 	CDEF:shading1=temp,0.125,*  AREA:shading1#C6E6E620::STACK \
 	CDEF:shading2=temp,0.125,*  AREA:shading2#C6E6E640::STACK \
 	CDEF:shading3=temp,0.125,*  AREA:shading3#C6E6E660::STACK \
