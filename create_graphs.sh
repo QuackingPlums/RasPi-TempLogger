@@ -1,7 +1,7 @@
 #!/bin/bash
 . rrd.conf
 
-rm -f *.png
+rm -f *.png > /dev/null
 
 # 1 hour
 rrdtool graph 1h.png \
