@@ -5,7 +5,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <link href="thumbs/homescreen.gif" rel="apple-touch-icon" />
-<meta content="minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+<meta name="viewport" content="initial-scale=1.0">
 <link href="css/style.css" rel="stylesheet" media="screen" type="text/css" />
 <script src="javascript/functions.js" type="text/javascript"></script>
 <title>RasPi-TempLogger</title>
