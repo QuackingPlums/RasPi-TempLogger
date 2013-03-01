@@ -1,13 +1,14 @@
 # Config files
 rrd.conf
 cron-file.txt
-log.txt
 
 # Database
 *.rrd
 
-# Graphs
+# Output
+log.txt
 /*.png
+METAR.txt
 
 # Operating system files
 Thumbs.db

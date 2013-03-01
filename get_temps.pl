@@ -119,6 +119,8 @@ sub getOutdoorTemp
 	my $metar = getMetar();
 	print "Latest METAR from " . $metar_station_code .":\n" . $metar;
 
+	writeToFile('>' . $path_to_scripts . '/METAR.txt', $metar);
+
 	$metar =~ /([\s|M])(\d{2})\//g; #international METAR format: http://en.wikipedia.org/wiki/METAR
 
 	$outdoortemp = ($1 eq 'M') ? $2 * -1 : $2;
@@ -138,4 +140,13 @@ sub getMetar
 	return $response->content();
 	
 #	return 'EGVN 291150Z 22010KT 9999 -RA FEW008 BKN012 13/11 Q1002 GRN TEMPO 7000 -RADZ GRN';
+}
+
+sub writeToFile
+{
+	($filename, $content) = @_;
+	
+	open (OUTPUTFILE, $filename);
+	print OUTPUTFILE $content;
+	close (OUTPUTFILE);
 }
