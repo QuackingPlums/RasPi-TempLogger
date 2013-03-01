@@ -30,6 +30,7 @@ logTemps($outdoorTemp, $indoorTemp);
 createGraphs();
 
 moveGraphsToWebroot();
+moveMetarToWebroot();
 
 
 ################################################################################
@@ -44,6 +45,15 @@ sub moveGraphsToWebroot
 		print "Moving " . $file . " to " . $dest . "\n";
 		move ($file, $dest) or die $!;
 	}
+}
+
+sub moveMetarToWebroot
+{
+	my $src = $path_to_scripts . '/METAR.txt';
+	my $dest = $path_to_webroot . '/';
+
+	print "Moving " . $src . " to " . $dest . "\n";
+	move ($src, $dest) or die $!;
 }
 
 sub createGraphs
