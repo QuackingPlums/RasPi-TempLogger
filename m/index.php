@@ -1,16 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <? $lastupdate = date("F d, Y g:i A", filemtime("../1h.png")); ?>
+<?php include '_vars.php'; ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<link href="thumbs/homescreen.gif" rel="apple-touch-icon" />
-<meta name="viewport" content="initial-scale=1.0">
-<link href="css/style.css" rel="stylesheet" media="screen" type="text/css" />
-<script src="javascript/functions.js" type="text/javascript"></script>
-<title>RasPi-TempLogger</title>
-<meta content="Raspberry,Pi,Temperature,Logger" name="keywords" />
-<meta content="Indoor/Outdoor temperature graphs over time. A Raspberry Pi project." name="description" />
+<?php include '_header.php'; ?>
 </head>
 
 <body>
@@ -19,39 +12,18 @@
 	<div id="title">RasPi-TempLogger</div>
 	<div id="rightbutton"><a href="" class="noeffect" onClick="document.location.reload(true)">Refresh</a></div>
 </div>
+<div id="tributton">
+	<div class="links">
+		<a id="pressed" href="#">24h</a><a href="1m.php">1m</a><a href="12m.php">12m</a></div>
+</div>
 <div id="content">
-	<span class="graytitle">Last updated: <?=str_replace(' ','&nbsp;',$lastupdate)?></span>
+	<span class="graytitle">Last updated:<br><?=str_replace(' ','&nbsp;',$lastupdate)?></span>
 	<ul class="pageitem">
 		<li class="textbox">
-			<span class="header">Resolution: 5 minutes</span>
+			<span class="header">Last updated:<br><?=str_replace(' ','&nbsp;',$lastupdate)?></span>
 			<p><img src="../1h.png"/></p>
 			<p><img src="../8h.png"/></p>
 			<p><img src="../1d.png"/></p>
-		</li>
-	</ul>
-	<ul class="pageitem">
-		<li class="textbox">
-			<span class="header">Resolution: 60 minutes</span>
-			<img src="../7d.png"/>
-		</li>
-	</ul>
-	<ul class="pageitem">
-		<li class="textbox">
-			<span class="header">Resolution: 4 hours</span>
-			<img src="../30d.png"/>
-		</li>
-	</ul>
-	<ul class="pageitem">
-		<li class="textbox">
-			<span class="header">Resolution: 12 hours</span>
-			<p><img src="../90d.png"/></p>
-			<p><img src="../180d.png"/></p>
-		</li>
-	</ul>
-	<ul class="pageitem">
-		<li class="textbox">
-			<span class="header">Resolution: 24 hours</span>
-			<img src="../365d.png"/>
 		</li>
 	</ul>
 </div>
