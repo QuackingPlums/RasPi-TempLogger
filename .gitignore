@@ -8,3 +8,6 @@ log.txt
 
 # Graphs
 /*.png
+
+# Operating system files
+Thumbs.db
