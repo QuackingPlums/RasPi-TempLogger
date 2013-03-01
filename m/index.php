@@ -10,7 +10,7 @@
 
 <div id="topbar">
 	<div id="title"><?php echo $title; ?></div>
-	<div id="rightbutton"><a href="" class="noeffect" onClick="window.location=document.location">Refresh</a></div>
+	<div id="rightbutton"><a href="" onClick="window.location=document.location">Refresh</a></div>
 </div>
 <div id="tributton">
 	<div class="links">

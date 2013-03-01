@@ -10,11 +10,11 @@
 
 <div id="topbar">
 	<div id="title"><?php echo $title; ?></div>
-	<div id="rightbutton"><a href="" class="noeffect" onClick="window.location=document.location">Refresh</a></div>
+	<div id="rightbutton"><a href="" onClick="window.location=document.location">Refresh</a></div>
 </div>
 <div id="tributton">
 	<div class="links">
-		<a href="index.php">24h</a><a id="pressed">1m</a><a href="12m.php">12m</a></div>
+		<a href="index.php">24h</a><a id="pressed" href="#">1m</a><a href="12m.php">12m</a></div>
 </div>
 <div id="content">
 	<ul class="pageitem">
