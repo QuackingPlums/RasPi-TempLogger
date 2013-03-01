@@ -10,7 +10,7 @@
 
 <div id="topbar">
 	<div id="title"><?php echo $title; ?></div>
-	<div id="rightbutton"><a href="" class="noeffect" onClick="document.location.reload(true)">Refresh</a></div>
+	<div id="rightbutton"><a href="" class="noeffect" onClick="window.location=document.location">Refresh</a></div>
 </div>
 <div id="tributton">
 	<div class="links">
@@ -19,10 +19,10 @@
 <div id="content">
 	<ul class="pageitem">
 		<li class="textbox">
-			<span class="header">Last updated:<br><?=str_replace(' ','&nbsp;',$lastupdate)?></span>
 			<p><img src="../1h.png"/></p>
 			<p><img src="../8h.png"/></p>
 			<p><img src="../1d.png"/></p>
+			<span class="header">Last updated: <?=str_replace(' ','&nbsp;',$lastupdate)?></span>
 		</li>
 	</ul>
 </div>
