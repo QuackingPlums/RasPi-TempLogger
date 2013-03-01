@@ -9,7 +9,7 @@
 <body>
 
 <div id="topbar">
-	<div id="title">RasPi-TempLogger</div>
+	<div id="title"><?php echo $title; ?></div>
 	<div id="rightbutton"><a href="" class="noeffect" onClick="document.location.reload(true)">Refresh</a></div>
 </div>
 <div id="tributton">
@@ -17,7 +17,6 @@
 		<a href="index.php">24h</a><a id="pressed">1m</a><a href="12m.php">12m</a></div>
 </div>
 <div id="content">
-	<span class="graytitle">Last updated: <?=str_replace(' ','&nbsp;',$lastupdate)?></span>
 	<ul class="pageitem">
 		<li class="textbox">
 			<span class="header">Last updated:<br><?=str_replace(' ','&nbsp;',$lastupdate)?></span>
