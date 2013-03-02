@@ -9,6 +9,8 @@
 <body>
 
 <div id="topbar">
+	<div id="leftnav">
+		<a href="METAR.php">METAR</a></div>
 	<div id="title"><?php echo $title; ?></div>
 	<div id="rightbutton"><a href="" onClick="window.location=document.location">Refresh</a></div>
 </div>

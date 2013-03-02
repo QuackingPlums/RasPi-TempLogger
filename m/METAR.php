@@ -9,21 +9,19 @@
 <body>
 
 <div id="topbar">
-	<div id="leftnav">
-		<a href="METAR.php">METAR</a></div>
 	<div id="title"><?php echo $title; ?></div>
-	<div id="rightbutton"><a href="" onClick="window.location=document.location">Refresh</a></div>
-</div>
-<div id="tributton">
-	<div class="links">
-		<a href="index.php">24h</a><a id="pressed" href="#">1m</a><a href="12m.php">12m</a></div>
+	<div id="rightnav">
+		<a href="index.php"><img alt="home" src="images/home.png" /></a></div>
 </div>
 <div id="content">
 	<ul class="pageitem">
 		<li class="textbox">
-			<p><img src="../7d.png"/></p>
-			<p><img src="../30d.png"/></p>
-			<span class="header">Last updated: <?=str_replace(' ','&nbsp;',$lastupdate)?></span>
+			<p>
+			<?php
+			$METAR = file_get_contents('../METAR.txt');
+			echo $METAR;
+			?>
+			</p>
 		</li>
 	</ul>
 </div>
